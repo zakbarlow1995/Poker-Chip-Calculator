@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		376A9D5123B6446A00543FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A9D5023B6446A00543FBD /* AppDelegate.swift */; };
-		376A9D5323B6446A00543FBD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A9D5223B6446A00543FBD /* SceneDelegate.swift */; };
 		376A9D5523B6446A00543FBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A9D5423B6446A00543FBD /* ViewController.swift */; };
 		376A9D5823B6446A00543FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5623B6446A00543FBD /* Main.storyboard */; };
 		376A9D5A23B6446B00543FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5923B6446B00543FBD /* Assets.xcassets */; };
@@ -18,7 +17,6 @@
 /* Begin PBXFileReference section */
 		376A9D4D23B6446A00543FBD /* Poker Chip Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poker Chip Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		376A9D5023B6446A00543FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		376A9D5223B6446A00543FBD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		376A9D5423B6446A00543FBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		376A9D5723B6446A00543FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		376A9D5923B6446B00543FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -57,7 +55,6 @@
 			isa = PBXGroup;
 			children = (
 				376A9D5023B6446A00543FBD /* AppDelegate.swift */,
-				376A9D5223B6446A00543FBD /* SceneDelegate.swift */,
 				376A9D5423B6446A00543FBD /* ViewController.swift */,
 				376A9D5623B6446A00543FBD /* Main.storyboard */,
 				376A9D5923B6446B00543FBD /* Assets.xcassets */,
@@ -140,7 +137,6 @@
 			files = (
 				376A9D5523B6446A00543FBD /* ViewController.swift in Sources */,
 				376A9D5123B6446A00543FBD /* AppDelegate.swift in Sources */,
-				376A9D5323B6446A00543FBD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +283,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU94JLHKNT;
 				INFOPLIST_FILE = "Poker Chip Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +302,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JU94JLHKNT;
 				INFOPLIST_FILE = "Poker Chip Calculator/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
