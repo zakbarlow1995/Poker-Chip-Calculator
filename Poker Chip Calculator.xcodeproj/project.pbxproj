@@ -8,20 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		376A9D5123B6446A00543FBD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A9D5023B6446A00543FBD /* AppDelegate.swift */; };
-		376A9D5523B6446A00543FBD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 376A9D5423B6446A00543FBD /* ViewController.swift */; };
 		376A9D5823B6446A00543FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5623B6446A00543FBD /* Main.storyboard */; };
 		376A9D5A23B6446B00543FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5923B6446B00543FBD /* Assets.xcassets */; };
 		376A9D5D23B6446B00543FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5B23B6446B00543FBD /* LaunchScreen.storyboard */; };
+		37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6328B23B64E04002863CA /* ChipSetTableVC.swift */; };
+		37B6328F23B64E46002863CA /* ChipStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6328E23B64E46002863CA /* ChipStack.swift */; };
+		37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		376A9D4D23B6446A00543FBD /* Poker Chip Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poker Chip Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		376A9D5023B6446A00543FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		376A9D5423B6446A00543FBD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		376A9D5723B6446A00543FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		376A9D5923B6446B00543FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		376A9D5C23B6446B00543FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		376A9D5E23B6446B00543FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		37B6328B23B64E04002863CA /* ChipSetTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSetTableVC.swift; sourceTree = "<group>"; };
+		37B6328E23B64E46002863CA /* ChipStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipStack.swift; sourceTree = "<group>"; };
+		37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringExtensions+Regex.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +58,40 @@
 		376A9D4F23B6446A00543FBD /* Poker Chip Calculator */ = {
 			isa = PBXGroup;
 			children = (
+				37B6329023B64F80002863CA /* Extensions+Helpers */,
+				37B6328D23B64E1E002863CA /* Models */,
+				37B6328A23B64DAB002863CA /* ViewControllers */,
 				376A9D5023B6446A00543FBD /* AppDelegate.swift */,
-				376A9D5423B6446A00543FBD /* ViewController.swift */,
 				376A9D5623B6446A00543FBD /* Main.storyboard */,
 				376A9D5923B6446B00543FBD /* Assets.xcassets */,
 				376A9D5B23B6446B00543FBD /* LaunchScreen.storyboard */,
 				376A9D5E23B6446B00543FBD /* Info.plist */,
 			);
 			path = "Poker Chip Calculator";
+			sourceTree = "<group>";
+		};
+		37B6328A23B64DAB002863CA /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				37B6328B23B64E04002863CA /* ChipSetTableVC.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		37B6328D23B64E1E002863CA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				37B6328E23B64E46002863CA /* ChipStack.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		37B6329023B64F80002863CA /* Extensions+Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */,
+			);
+			path = "Extensions+Helpers";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,8 +165,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				376A9D5523B6446A00543FBD /* ViewController.swift in Sources */,
+				37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */,
+				37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */,
 				376A9D5123B6446A00543FBD /* AppDelegate.swift in Sources */,
+				37B6328F23B64E46002863CA /* ChipStack.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
