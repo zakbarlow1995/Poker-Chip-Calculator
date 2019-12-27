@@ -9,7 +9,11 @@
 import UIKit
 
 class ChipSetTableVC: UITableViewController {
-
+    
+    private let chipSetIdentifier = "chipSetIdentifier"
+    
+    var chipSets: [ChipSet] = [ChipSet.monteCarloChipSet(currency: "$"), ChipSet.monteCarloChipSet(currency: "£")]
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         setupTransparentNavigationBarWithWhiteText()
@@ -26,29 +30,32 @@ class ChipSetTableVC: UITableViewController {
         
         navigationItem.title = "Poker Chip Sets"
         navigationController?.navigationBar.prefersLargeTitles = true
+        
+        setupTableView()
+    }
+    
+    fileprivate func setupTableView() {
+        // Setup table view
+        tableView.dataSource = self
+        tableView.delegate = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: chipSetIdentifier)
+        tableView.bounces = false
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return chipSets.count
     }
 
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: chipSetIdentifier, for: indexPath)
+
+        guard indexPath.row < chipSets.count else { return cell }
+        cell.textLabel?.text = chipSets[indexPath.row].name
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
@@ -84,15 +91,4 @@ class ChipSetTableVC: UITableViewController {
         return true
     }
     */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

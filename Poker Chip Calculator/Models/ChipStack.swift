@@ -38,10 +38,12 @@ class ChipStack {
 }
 
 class ChipSet {
+    var name: String
     var stacks: [ChipStack]
     var currency: String?
     
-    init(stacks: [ChipStack] = [], currency: String? = nil) {
+    init(name: String, stacks: [ChipStack] = [], currency: String? = nil) {
+        self.name = name
         self.stacks = stacks
         self.currency = currency
     }
@@ -55,6 +57,6 @@ class ChipSet {
     }
     
     static func monteCarloChipSet(currency: String = "$") -> ChipSet {
-        return .init(stacks: [ChipStack(value: 100, number: 175, currency: currency, title: "Yellow/Black", color: .systemYellow), ChipStack(value: 500, number: 150, currency: currency, title: "Purple", color: .systemPurple), ChipStack(value: 1000, number: 125, currency: currency, title: "Orange/Yellow", color: .systemOrange), ChipStack(value: 5000, number: 50, currency: currency, title: "Pink", color: .systemPink)], currency: currency)
+        return .init(name: "Monte Carlo - (\(currency))", stacks: [ChipStack(value: 100, number: 175, currency: currency, title: "Yellow/Black", color: .systemYellow), ChipStack(value: 500, number: 150, currency: currency, title: "Purple", color: .systemPurple), ChipStack(value: 1000, number: 125, currency: currency, title: "Orange/Yellow", color: .systemOrange), ChipStack(value: 5000, number: 50, currency: currency, title: "Pink", color: .systemPink)], currency: currency)
     }
 }
