@@ -11,6 +11,11 @@
 		376A9D5823B6446A00543FBD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5623B6446A00543FBD /* Main.storyboard */; };
 		376A9D5A23B6446B00543FBD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5923B6446B00543FBD /* Assets.xcassets */; };
 		376A9D5D23B6446B00543FBD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 376A9D5B23B6446B00543FBD /* LaunchScreen.storyboard */; };
+		378D78B723B66EE5005F9FCB /* ChipSetDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378D78B623B66EE5005F9FCB /* ChipSetDetailVC.swift */; };
+		378D78B923B66FD3005F9FCB /* ChipSetDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 378D78B823B66FD3005F9FCB /* ChipSetDetailCell.swift */; };
+		37A8314E23B65FF900CA8E08 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8314D23B65FF900CA8E08 /* UIViewExtensions.swift */; };
+		37A8315023B663A700CA8E08 /* UILabelExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8314F23B663A700CA8E08 /* UILabelExtensions.swift */; };
+		37A8315223B66E0A00CA8E08 /* ChipSetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37A8315123B66E0A00CA8E08 /* ChipSetTableViewCell.swift */; };
 		37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6328B23B64E04002863CA /* ChipSetTableVC.swift */; };
 		37B6328F23B64E46002863CA /* ChipStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6328E23B64E46002863CA /* ChipStack.swift */; };
 		37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */; };
@@ -25,6 +30,11 @@
 		376A9D5923B6446B00543FBD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		376A9D5C23B6446B00543FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		376A9D5E23B6446B00543FBD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		378D78B623B66EE5005F9FCB /* ChipSetDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSetDetailVC.swift; sourceTree = "<group>"; };
+		378D78B823B66FD3005F9FCB /* ChipSetDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSetDetailCell.swift; sourceTree = "<group>"; };
+		37A8314D23B65FF900CA8E08 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		37A8314F23B663A700CA8E08 /* UILabelExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelExtensions.swift; sourceTree = "<group>"; };
+		37A8315123B66E0A00CA8E08 /* ChipSetTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSetTableViewCell.swift; sourceTree = "<group>"; };
 		37B6328B23B64E04002863CA /* ChipSetTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSetTableVC.swift; sourceTree = "<group>"; };
 		37B6328E23B64E46002863CA /* ChipStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipStack.swift; sourceTree = "<group>"; };
 		37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringExtensions+Regex.swift"; sourceTree = "<group>"; };
@@ -78,6 +88,9 @@
 			isa = PBXGroup;
 			children = (
 				37B6328B23B64E04002863CA /* ChipSetTableVC.swift */,
+				37A8315123B66E0A00CA8E08 /* ChipSetTableViewCell.swift */,
+				378D78B623B66EE5005F9FCB /* ChipSetDetailVC.swift */,
+				378D78B823B66FD3005F9FCB /* ChipSetDetailCell.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -96,6 +109,8 @@
 				37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */,
 				37B6329323B653D4002863CA /* UIViewControllerExtensions.swift */,
 				37B6329523B654A3002863CA /* UIStringExtensions.swift */,
+				37A8314D23B65FF900CA8E08 /* UIViewExtensions.swift */,
+				37A8314F23B663A700CA8E08 /* UILabelExtensions.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -171,9 +186,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37A8315023B663A700CA8E08 /* UILabelExtensions.swift in Sources */,
 				37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */,
+				378D78B723B66EE5005F9FCB /* ChipSetDetailVC.swift in Sources */,
+				37A8314E23B65FF900CA8E08 /* UIViewExtensions.swift in Sources */,
 				37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */,
 				37B6329623B654A3002863CA /* UIStringExtensions.swift in Sources */,
+				378D78B923B66FD3005F9FCB /* ChipSetDetailCell.swift in Sources */,
+				37A8315223B66E0A00CA8E08 /* ChipSetTableViewCell.swift in Sources */,
 				37B6329423B653D4002863CA /* UIViewControllerExtensions.swift in Sources */,
 				376A9D5123B6446A00543FBD /* AppDelegate.swift in Sources */,
 				37B6328F23B64E46002863CA /* ChipStack.swift in Sources */,

@@ -28,6 +28,8 @@ class ChipSetTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addChipSet))
+        
         navigationItem.title = "Poker Chip Sets"
         navigationController?.navigationBar.prefersLargeTitles = true
         
@@ -38,8 +40,12 @@ class ChipSetTableVC: UITableViewController {
         // Setup table view
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: chipSetIdentifier)
+        tableView.register(ChipSetTableViewCell.self, forCellReuseIdentifier: chipSetIdentifier)
         tableView.bounces = false
+    }
+    
+    @objc fileprivate func addChipSet() {
+        print("addChipSetButtonPressed")
     }
 
     // MARK: - Table view data source
@@ -47,13 +53,18 @@ class ChipSetTableVC: UITableViewController {
         return chipSets.count
     }
 
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 40.0
+    }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: chipSetIdentifier, for: indexPath)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: chipSetIdentifier, for: indexPath) as? ChipSetTableViewCell else { return UITableViewCell() }
 
         guard indexPath.row < chipSets.count else { return cell }
-        cell.textLabel?.text = chipSets[indexPath.row].name
-
+//        cell.textLabel?.text = chipSets[indexPath.row].name
+        
+        cell.configure(with: chipSets[indexPath.row], delegate: self)
+        
         return cell
     }
 
@@ -91,4 +102,13 @@ class ChipSetTableVC: UITableViewController {
         return true
     }
     */
+}
+
+extension ChipSetTableVC: ChipSetTableViewCellDelegate {
+    func chipSetTableViewCellPressed(for chipSet: ChipSet) {
+        print("DELEGATION - Chip set button pressed: \(chipSet.name)")
+        let newVC = ChipSetDetailVC()
+        newVC.configure(with: ChipSetDetailViewModel(chipSet: chipSet))
+        navigationController?.pushViewController(newVC, animated: true)
+    }
 }
