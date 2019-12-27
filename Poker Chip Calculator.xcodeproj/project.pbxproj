@@ -14,6 +14,8 @@
 		37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6328B23B64E04002863CA /* ChipSetTableVC.swift */; };
 		37B6328F23B64E46002863CA /* ChipStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6328E23B64E46002863CA /* ChipStack.swift */; };
 		37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */; };
+		37B6329423B653D4002863CA /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329323B653D4002863CA /* UIViewControllerExtensions.swift */; };
+		37B6329623B654A3002863CA /* UIStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329523B654A3002863CA /* UIStringExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,8 @@
 		37B6328B23B64E04002863CA /* ChipSetTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipSetTableVC.swift; sourceTree = "<group>"; };
 		37B6328E23B64E46002863CA /* ChipStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChipStack.swift; sourceTree = "<group>"; };
 		37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringExtensions+Regex.swift"; sourceTree = "<group>"; };
+		37B6329323B653D4002863CA /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
+		37B6329523B654A3002863CA /* UIStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStringExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,8 @@
 			isa = PBXGroup;
 			children = (
 				37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */,
+				37B6329323B653D4002863CA /* UIViewControllerExtensions.swift */,
+				37B6329523B654A3002863CA /* UIStringExtensions.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -167,6 +173,8 @@
 			files = (
 				37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */,
 				37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */,
+				37B6329623B654A3002863CA /* UIStringExtensions.swift in Sources */,
+				37B6329423B653D4002863CA /* UIViewControllerExtensions.swift in Sources */,
 				376A9D5123B6446A00543FBD /* AppDelegate.swift in Sources */,
 				37B6328F23B64E46002863CA /* ChipStack.swift in Sources */,
 			);

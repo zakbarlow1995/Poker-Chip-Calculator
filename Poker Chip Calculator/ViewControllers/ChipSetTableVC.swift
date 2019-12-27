@@ -10,6 +10,11 @@ import UIKit
 
 class ChipSetTableVC: UITableViewController {
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupTransparentNavigationBarWithWhiteText()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +23,9 @@ class ChipSetTableVC: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        navigationItem.title = "Poker Chip Sets"
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
     // MARK: - Table view data source
