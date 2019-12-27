@@ -29,6 +29,28 @@ class ChipStack {
     }
     
     var formattedValue: String {
-        return currency.isEmptyOrNil ? "\(value)" : "\(currency ?? "$")\(value)"
+        return currency.isEmptyOrNil ? "\(value)" : "\(currency ?? "£")\(value)"
+    }
+    
+    var formattedTotalValue: String {
+        return currency.isEmptyOrNil ? "\(totalValue)" : "\(currency ?? "£")\(totalValue)"
+    }
+}
+
+class ChipSet {
+    var stacks: [ChipStack]
+    var currency: String?
+    
+    init(stacks: [ChipStack] = [], currency: String? = nil) {
+        self.stacks = stacks
+        self.currency = currency
+    }
+    
+    var totalValue: Int {
+        return stacks.map { $0.value }.reduce(0, +)
+    }
+    
+    var formattedTotalValue: String {
+        return currency.isEmptyOrNil ? "\(totalValue)" : "\(currency ?? "£")\(totalValue)"
     }
 }
