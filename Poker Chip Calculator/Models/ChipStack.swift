@@ -59,4 +59,21 @@ class ChipSet {
     static func monteCarloChipSet(currency: String = "$") -> ChipSet {
         return .init(name: "Monte Carlo - (\(currency))", stacks: [ChipStack(value: 100, number: 175, currency: currency, title: "Yellow/Black", color: .systemYellow), ChipStack(value: 500, number: 150, currency: currency, title: "Purple", color: .systemPurple), ChipStack(value: 1000, number: 125, currency: currency, title: "Orange/Yellow", color: .systemOrange), ChipStack(value: 5000, number: 50, currency: currency, title: "Pink", color: .systemPink)], currency: currency)
     }
+    
+    static func random() -> ChipSet {
+        let currency = randomCurrency
+        let randomNumberOfChipTypes = Int.random(in: 4...10)
+        
+        var stacks = [ChipStack]()
+        
+        for value in 1...randomNumberOfChipTypes {
+            stacks.append(ChipStack(value: value*100, number: 100, currency: currency, title: nil, color: .random))
+        }
+        
+        return .init(name: "Random - (\(currency))", stacks: stacks, currency: currency)
+    }
+    
+    private static var randomCurrency: String {
+        return ["$", "£", "CAD", "NZD", "EUR"].randomElement() ?? ""
+    }
 }

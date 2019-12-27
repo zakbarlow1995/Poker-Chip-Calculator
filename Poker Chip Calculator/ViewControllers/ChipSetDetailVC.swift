@@ -34,6 +34,11 @@ class ChipSetDetailVC: UITableViewController {
         navigationItem.title = viewModel?.chipSet.name
         navigationController?.navigationBar.prefersLargeTitles = true
         
+        // Remove "Back" text from navigation bar, to be left with just " < " chevron
+        if let topItem = self.navigationController?.navigationBar.topItem {
+            topItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+        }
+        
         setupTableView()
     }
         
