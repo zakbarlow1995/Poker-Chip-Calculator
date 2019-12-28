@@ -28,7 +28,7 @@ class ChipSetTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addChipSet))
+//        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "+", style: .done, target: self, action: #selector(addChipSet))
         
         navigationItem.title = "Poker Chip Sets"
         navigationController?.navigationBar.prefersLargeTitles = true

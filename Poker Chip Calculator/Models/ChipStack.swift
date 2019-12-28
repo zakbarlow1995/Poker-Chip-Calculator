@@ -74,6 +74,6 @@ class ChipSet {
     }
     
     private static var randomCurrency: String {
-        return ["$", "£", "CAD", "NZD", "EUR"].randomElement() ?? ""
+        return ["$", "£", "CAD", "NZD", "€", "¥", "CNY", "AUD", "ZAR", "₹", "RUB"].randomElement() ?? ""
     }
 }
