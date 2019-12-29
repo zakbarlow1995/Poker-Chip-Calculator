@@ -21,6 +21,8 @@
 		37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */; };
 		37B6329423B653D4002863CA /* UIViewControllerExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329323B653D4002863CA /* UIViewControllerExtensions.swift */; };
 		37B6329623B654A3002863CA /* UIStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329523B654A3002863CA /* UIStringExtensions.swift */; };
+		37BD82C023B8BF0100D1B45B /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BD82BF23B8BF0100D1B45B /* FormViewController.swift */; };
+		37BD82C223B9043A00D1B45B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BD82C123B9043A00D1B45B /* CustomTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		37B6329123B64FF2002863CA /* StringExtensions+Regex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StringExtensions+Regex.swift"; sourceTree = "<group>"; };
 		37B6329323B653D4002863CA /* UIViewControllerExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExtensions.swift; sourceTree = "<group>"; };
 		37B6329523B654A3002863CA /* UIStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStringExtensions.swift; sourceTree = "<group>"; };
+		37BD82BF23B8BF0100D1B45B /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
+		37BD82C123B9043A00D1B45B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +95,7 @@
 				37A8315123B66E0A00CA8E08 /* ChipSetTableViewCell.swift */,
 				378D78B623B66EE5005F9FCB /* ChipSetDetailVC.swift */,
 				378D78B823B66FD3005F9FCB /* ChipSetDetailCell.swift */,
+				37BD82BF23B8BF0100D1B45B /* FormViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -111,6 +116,7 @@
 				37B6329523B654A3002863CA /* UIStringExtensions.swift */,
 				37A8314D23B65FF900CA8E08 /* UIViewExtensions.swift */,
 				37A8314F23B663A700CA8E08 /* UILabelExtensions.swift */,
+				37BD82C123B9043A00D1B45B /* CustomTextField.swift */,
 			);
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
@@ -186,12 +192,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37BD82C223B9043A00D1B45B /* CustomTextField.swift in Sources */,
 				37A8315023B663A700CA8E08 /* UILabelExtensions.swift in Sources */,
 				37B6329223B64FF2002863CA /* StringExtensions+Regex.swift in Sources */,
 				378D78B723B66EE5005F9FCB /* ChipSetDetailVC.swift in Sources */,
 				37A8314E23B65FF900CA8E08 /* UIViewExtensions.swift in Sources */,
 				37B6328C23B64E04002863CA /* ChipSetTableVC.swift in Sources */,
 				37B6329623B654A3002863CA /* UIStringExtensions.swift in Sources */,
+				37BD82C023B8BF0100D1B45B /* FormViewController.swift in Sources */,
 				378D78B923B66FD3005F9FCB /* ChipSetDetailCell.swift in Sources */,
 				37A8315223B66E0A00CA8E08 /* ChipSetTableViewCell.swift in Sources */,
 				37B6329423B653D4002863CA /* UIViewControllerExtensions.swift in Sources */,

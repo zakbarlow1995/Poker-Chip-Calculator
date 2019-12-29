@@ -25,7 +25,13 @@ class ChipSetDetailCell: UITableViewCell {
     weak var delegate: ChipSetDetailCellDelegate?
     private var chipStack: ChipStack?
     
-    let stackLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 0, sizeToFit: true, adjustsFontSizeToFitWidth: true)
+    lazy var desiredSwatchSize = CGSize(width: contentView.bounds.height - 16.0, height: contentView.bounds.height - 16.0)
+    
+    let stackDenominationLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 0, sizeToFit: true, adjustsFontSizeToFitWidth: true)
+    let stackCountLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 0, sizeToFit: true, adjustsFontSizeToFitWidth: true)
+    
+    let colorSwatch = UIView()
+    
     var button = UIButton(backgroundColor: .clear)
     
     @objc func buttonAction() {
@@ -47,12 +53,19 @@ class ChipSetDetailCell: UITableViewCell {
     }
     
     fileprivate func setupNameLabel() {
-        contentView.addSubview(stackLabel)
-        stackLabel.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 0))
+        contentView.addSubviews(stackDenominationLabel, stackCountLabel, colorSwatch)
+//        stackDenominationLabel.fillSuperview(padding: .init(top: 0, left: 16, bottom: 0, right: 0))
+        stackDenominationLabel.anchor(top: contentView.topAnchor, leading: contentView.leadingAnchor, bottom: contentView.bottomAnchor, trailing: contentView.centerXAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 0))
+        
+        colorSwatch.anchor(top: contentView.centerYAnchor, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: -0.5*desiredSwatchSize.height, left: 0, bottom: 0, right: 16), size: desiredSwatchSize)
+        stackCountLabel.centerYTo(contentView.centerYAnchor)
+        stackCountLabel.anchor(top: nil, leading: nil, bottom: nil, trailing: colorSwatch.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 8.0))
         
         if let chipStack = self.chipStack {
-            stackLabel.text = chipStack.formattedValue + "x\(chipStack.number)"
-            contentView.backgroundColor = chipStack.color
+            stackDenominationLabel.text = chipStack.formattedValue
+            stackCountLabel.text = "×\(chipStack.number)"
+            colorSwatch.backgroundColor = chipStack.color
+            colorSwatch.cornerRadius = 3.0
         }
     }
     
@@ -63,8 +76,11 @@ class ChipSetDetailCell: UITableViewCell {
     }
     
     override func prepareForReuse() {
-        stackLabel.text = nil
+        stackDenominationLabel.text = nil
+        stackCountLabel.text = nil
+        colorSwatch.backgroundColor = .clear
         chipStack = nil
-        stackLabel.removeFromSuperview()
+       
+        [stackDenominationLabel, colorSwatch, stackCountLabel].forEach { $0.removeFromSuperview() }
     }
 }
