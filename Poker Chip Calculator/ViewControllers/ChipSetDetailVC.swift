@@ -75,14 +75,11 @@ class ChipSetDetailVC: UIViewController {
         
         guard let viewModel = self.viewModel else { return }
         
-        
         if viewModel.chipSet.stacks.map({$0.value}) == viewModel.chipSet.stacks.sorted(by: {$0.value < $1.value }).map({$0.value}) {
             viewModel.chipSet.stacks = viewModel.chipSet.stacks.sorted(by: {$0.value > $1.value })
         } else {
             viewModel.chipSet.stacks = viewModel.chipSet.stacks.sorted(by: {$0.value < $1.value })
         }
-        
-//        viewModel.chipSet.stacks = viewModel.chipSet.stacks.sorted(by: {$0.value < $1.value })
         
         tableView.beginUpdates()
         tableView.reloadData()

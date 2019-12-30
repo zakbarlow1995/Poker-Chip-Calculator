@@ -74,7 +74,7 @@ class ChipSetTableVC: UIViewController {
     
     private let chipSetIdentifier = "chipSetIdentifier"
     
-    var chipSets: [ChipSet] = [ChipSet.monteCarloChipSet(currency: "$"), ChipSet.monteCarloChipSet(currency: "£"), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random(), ChipSet.random()]
+    var chipSets: [ChipSet] = [ChipSet.monteCarloChipSet(currency: "$"), ChipSet.travelChipSet()]
     
     private var pickerCurrencyData = ["None", "$", "¢", "£", "€", "¥", "֏", "৳", "৲", "৻", "૱", "௹", "฿", "៛", "₠", "₡", "₢", "₣", "₤", "₥", "₦", "₧", "₨", "₩", "₪", "₫", "₭", "₮", "₯", "gn", "₰", "ny", "₱", "₲", "₳", "₴", "₵", "₶", "₷", "₸", "₹", "₺", "₻", "₼", "₽", "₾", "₿", "රු", "Rs", "Fr", "ƒ", "NT$", "C$", "CHF", "Дин.", "ден", "kr", "zł", "L", "c", "n", "q", "فلس" ,"ملّيم" ,"ر.س"]
     

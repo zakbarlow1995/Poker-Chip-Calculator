@@ -56,6 +56,10 @@ class ChipSet {
         return currency.isEmptyOrNil ? "\(totalValue)" : "\(currency ?? "£")\(totalValue)"
     }
     
+    static func travelChipSet(currency: String? = nil) -> ChipSet {
+        return .init(name: currency.isEmptyOrNil ? "Travel Chip Set" : "Travel Chip Set - (\(currency ?? "N/A"))", stacks: [ChipStack(value: 25, number: 36, currency: currency, title: "Red", color: .systemBlue), ChipStack(value: 50, number: 36, currency: currency, title: "Purple", color: .systemGreen), ChipStack(value: 100, number: 24, currency: currency, title: "Orange/Yellow", color: .systemYellow), ChipStack(value: 250, number: 12, currency: currency, title: "Pink", color: .systemRed)], currency: currency)
+    }
+    
     static func monteCarloChipSet(currency: String = "$") -> ChipSet {
         return .init(name: "Monte Carlo - (\(currency))", stacks: [ChipStack(value: 100, number: 175, currency: currency, title: "Yellow/Black", color: .systemYellow), ChipStack(value: 500, number: 150, currency: currency, title: "Purple", color: .systemPurple), ChipStack(value: 1000, number: 125, currency: currency, title: "Orange/Yellow", color: .systemOrange), ChipStack(value: 5000, number: 50, currency: currency, title: "Pink", color: .systemPink)], currency: currency)
     }
