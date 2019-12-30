@@ -27,8 +27,8 @@ class ChipSetDetailCell: UITableViewCell {
     
     lazy var desiredSwatchSize = CGSize(width: contentView.bounds.height - 16.0, height: contentView.bounds.height - 16.0)
     
-    let stackDenominationLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 0, sizeToFit: true, adjustsFontSizeToFitWidth: true)
-    let stackCountLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 0, sizeToFit: true, adjustsFontSizeToFitWidth: true)
+    let stackDenominationLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 1, sizeToFit: true, adjustsFontSizeToFitWidth: true)
+    let stackCountLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .right, numberOfLines: 1, sizeToFit: true, adjustsFontSizeToFitWidth: true)
     
     let colorSwatch = UIView()
     
@@ -59,7 +59,7 @@ class ChipSetDetailCell: UITableViewCell {
         
         colorSwatch.anchor(top: contentView.centerYAnchor, leading: nil, bottom: nil, trailing: contentView.trailingAnchor, padding: .init(top: -0.5*desiredSwatchSize.height, left: 0, bottom: 0, right: 16), size: desiredSwatchSize)
         stackCountLabel.centerYTo(contentView.centerYAnchor)
-        stackCountLabel.anchor(top: nil, leading: nil, bottom: nil, trailing: colorSwatch.leadingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 8.0))
+        stackCountLabel.anchor(top: nil, leading: stackDenominationLabel.trailingAnchor, bottom: nil, trailing: colorSwatch.leadingAnchor, padding: .init(top: 0, left: 16, bottom: 0, right: 8.0))
         
         if let chipStack = self.chipStack {
             stackDenominationLabel.text = chipStack.formattedValue

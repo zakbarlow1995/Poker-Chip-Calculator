@@ -25,7 +25,7 @@ class ChipSetTableViewCell: UITableViewCell {
     weak var delegate: ChipSetTableViewCellDelegate?
     private var chipSet: ChipSet?
     
-    let nameLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 0, sizeToFit: true, adjustsFontSizeToFitWidth: true)
+    let nameLabel = UILabel(font: UIFont.systemFont(ofSize: 24.0, weight: .bold), textColor: .systemGray, textAlignment: .left, numberOfLines: 1, sizeToFit: true, adjustsFontSizeToFitWidth: true)
     var button = UIButton(backgroundColor: .clear)
     
     @objc func buttonAction() {

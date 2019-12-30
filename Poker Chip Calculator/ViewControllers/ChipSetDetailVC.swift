@@ -24,8 +24,8 @@ class ChipSetDetailVC: UIViewController {
     private let chipStackIdentifier = "chipStackIdentifier"
     var viewModel: ChipSetDetailViewModel?
     
-    let chipValueTextField = NumericTextField(placeholder: "Enter Chip Value", font: UIFont.systemFont(ofSize: 19.0, weight: .regular), textAlignment: .left, textColor: .systemGray, tintColor: .systemGray, borderWidth: 1.0, borderColor: Colors.blueGreen, cornerRadius: 9.0)
-    let chipNumberTextField = NumericTextField(placeholder: "Enter Number Of Chips", font: UIFont.systemFont(ofSize: 19.0, weight: .regular), textAlignment: .left, textColor: .systemGray, tintColor: .systemGray, borderWidth: 1.0, borderColor: Colors.blueGreen, cornerRadius: 9.0)
+    let chipValueTextField = CustomTextField(placeholder: "Enter Chip Value", font: UIFont.systemFont(ofSize: 19.0, weight: .regular), textAlignment: .left, textColor: .systemGray, tintColor: .systemGray, borderWidth: 1.0, borderColor: Colors.blueGreen, cornerRadius: 9.0)
+    let chipNumberTextField = CustomTextField(placeholder: "Enter # Of Chips", font: UIFont.systemFont(ofSize: 19.0, weight: .regular), textAlignment: .left, textColor: .systemGray, tintColor: .systemGray, borderWidth: 1.0, borderColor: Colors.blueGreen, cornerRadius: 9.0)
     
     lazy var desiredButtonSize = CGSize(width: 120.0, height: 44.0)
     lazy var desiredCurrencySelectedButtonSize = CGSize(width: 250.0, height: 44.0)
@@ -99,6 +99,8 @@ class ChipSetDetailVC: UIViewController {
         
         chipValueTextField.delegate = self
         chipNumberTextField.delegate = self
+        chipValueTextField.keyboardType = .numberPad
+        chipNumberTextField.keyboardType = .numberPad
     }
         
     fileprivate func setupTableView() {
@@ -107,8 +109,11 @@ class ChipSetDetailVC: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ChipSetDetailCell.self, forCellReuseIdentifier: chipStackIdentifier)
+        tableView.keyboardDismissMode = .interactive
         
         tableView.anchor(top: chipNumberTextField.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
+        tableView.tableFooterView = UIView()
+        
         view.backgroundColor = Colors.crystalBlue
     }
     

@@ -104,14 +104,15 @@ class ChipSetTableVC: UIViewController {
     
     fileprivate func setupTableView() {
         // Setup table view
-        tableView.removeFromSuperview()
+        view.addSubview(tableView)
         tableView.dataSource = self
         tableView.delegate = self
         tableView.register(ChipSetTableViewCell.self, forCellReuseIdentifier: chipSetIdentifier)
         tableView.keyboardDismissMode = .interactive
         
-        view.addSubview(tableView)
         tableView.anchor(top: addChipSetButton.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
+        tableView.tableFooterView = UIView()
+        
         view.backgroundColor = Colors.crystalBlue
     }
     
