@@ -1,0 +1,16 @@
+PODS:
+  - IMGLYColorPicker (1.0.0)
+
+DEPENDENCIES:
+  - IMGLYColorPicker
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - IMGLYColorPicker
+
+SPEC CHECKSUMS:
+  IMGLYColorPicker: 10e4c27a332009a0318877b098ffef462087f6f5
+
+PODFILE CHECKSUM: bf57e04e50d5dfbd7fddd4efa5e7aa396ba5ca5d
+
+COCOAPODS: 1.7.5

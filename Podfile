@@ -6,5 +6,5 @@ target 'Poker Chip Calculator' do
   use_frameworks!
 
   # Pods for Poker Chip Calculator
-
+  pod "IMGLYColorPicker"
 end

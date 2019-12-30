@@ -13,7 +13,7 @@ class ChipSetTableVC: UIViewController {
     let tableView = UITableView()
     
     let pickerBlurView = UIView(backgroundColor: .black)
-    var containerView = UIView()
+    let containerView = UIView()
     let picker = UIPickerView()
     
     lazy var currencySelectedButton: UIButton = {

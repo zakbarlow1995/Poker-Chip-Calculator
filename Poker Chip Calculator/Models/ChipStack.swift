@@ -14,7 +14,7 @@ class ChipStack {
     var number: Int
     let currency: String?
     let title: String?
-    let color: UIColor?
+    var color: UIColor?
     
     init(value: Int, number: Int, currency: String? = nil, title: String? = nil, color: UIColor? = nil) {
         self.value = value

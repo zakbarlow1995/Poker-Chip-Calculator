@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import IMGLYColorPicker
 
 class ChipSetDetailViewModel {
     let chipSet: ChipSet
@@ -28,7 +29,7 @@ class ChipSetDetailVC: UIViewController {
     let chipNumberTextField = CustomTextField(placeholder: "Enter # Of Chips", font: UIFont.systemFont(ofSize: 19.0, weight: .regular), textAlignment: .left, textColor: .systemGray, tintColor: .systemGray, borderWidth: 1.0, borderColor: Colors.blueGreen, cornerRadius: 9.0)
     
     lazy var desiredButtonSize = CGSize(width: 120.0, height: 44.0)
-    lazy var desiredCurrencySelectedButtonSize = CGSize(width: 250.0, height: 44.0)
+    lazy var desiredColorSelectedButtonSize = CGSize(width: 250.0, height: 44.0)
     
     lazy var addChipStackButton: UIButton = {
         let btn = UIButton(frame: CGRect(origin: .zero, size: desiredButtonSize))
@@ -38,24 +39,81 @@ class ChipSetDetailVC: UIViewController {
         btn.titleLabel?.adjustsFontSizeToFitWidth = true
         btn.setTitleColor(.white, for: .normal)
         btn.cornerRadius = desiredButtonSize.height/2.0
-        btn.addTarget(self, action: #selector(addChipSetButtonPressed), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(addChipStackButtonPressed), for: .touchUpInside)
         return btn
     }()
-        
-    @objc func addChipSetButtonPressed() {
-        print("addChipSetButtonPressed")
+    
+    @objc func addChipStackButtonPressed() {
+        print("addChipStackButtonPressed")
         view.endEditing(true)
+        if let chipValueText = chipValueTextField.text, let chipNumberText = chipNumberTextField.text, !chipValueText.isEmpty, !chipNumberText.isEmpty {
+            if let viewModel = self.viewModel, let chipValue = Int(chipValueText), let existingStack = viewModel.chipSet.stacks.first(where: { $0.value == chipValue }) {
+                colorPickerView.color = existingStack.color ?? .random
+            } else {
+                colorPickerView.color = .random
+            }
+            
+            [pickerBlurView, containerView, colorSelectedButton].forEach { $0.isHidden = false }
+        }
+    }
+        
+//    @objc func addChipSetButtonPressed() {
+//        print("addChipSetButtonPressed")
+//        view.endEditing(true)
+//        if let viewModel = self.viewModel, let chipValueText = chipValueTextField.text, let chipNumberText = chipNumberTextField.text, !chipValueText.isEmpty, !chipNumberText.isEmpty, let chipValue = Int(chipValueText), let chipNumber = Int(chipNumberText) {
+//            
+//            
+//            if let stackToUpdate = viewModel.chipSet.stacks.first(where: { $0.value == chipValue }), let index = viewModel.chipSet.stacks.firstIndex(where: { $0.value == chipValue }) {
+//                stackToUpdate.number += chipNumber
+//                let indexPath = IndexPath(row: index, section: 0)
+//                tableView.beginUpdates()
+//                tableView.reloadRows(at: [indexPath], with: .automatic)
+//                tableView.endUpdates()
+//            } else {
+//                viewModel.chipSet.stacks.append(ChipStack(value: chipValue, number: chipNumber, currency: viewModel.chipSet.currency, title: nil, color: .random))
+//                
+//                let indexPath = IndexPath(row: viewModel.chipSet.stacks.count - 1, section: 0)
+//                
+//                tableView.beginUpdates()
+//                tableView.insertRows(at: [indexPath], with: .automatic)
+//                tableView.endUpdates()
+//            }
+//            chipValueTextField.text = nil
+//            chipNumberTextField.text = nil
+//        }
+//    }
+    
+    let pickerBlurView = UIView(backgroundColor: .black)
+    let containerView = UIView()
+    let colorPickerView = ColorPickerView()
+    
+    lazy var colorSelectedButton: UIButton = {
+        let btn = UIButton(frame: CGRect(origin: .zero, size: desiredColorSelectedButtonSize))
+        btn.backgroundColor = Colors.blueGreen
+        btn.setTitle("Color Selected", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 21.0, weight: .bold)
+        btn.titleLabel?.adjustsFontSizeToFitWidth = true
+        btn.setTitleColor(.white, for: .normal)
+        btn.cornerRadius = desiredButtonSize.height/2.0
+        btn.addTarget(self, action: #selector(colorSelectedButtonPressed), for: .touchUpInside)
+        return btn
+    }()
+    
+    @objc func colorSelectedButtonPressed() {
+        print("colorSelectedButtonPressed - \(colorPickerView.color)")
+        
         if let viewModel = self.viewModel, let chipValueText = chipValueTextField.text, let chipNumberText = chipNumberTextField.text, !chipValueText.isEmpty, !chipNumberText.isEmpty, let chipValue = Int(chipValueText), let chipNumber = Int(chipNumberText) {
             
             
             if let stackToUpdate = viewModel.chipSet.stacks.first(where: { $0.value == chipValue }), let index = viewModel.chipSet.stacks.firstIndex(where: { $0.value == chipValue }) {
                 stackToUpdate.number += chipNumber
+                stackToUpdate.color = colorPickerView.color
                 let indexPath = IndexPath(row: index, section: 0)
                 tableView.beginUpdates()
                 tableView.reloadRows(at: [indexPath], with: .automatic)
                 tableView.endUpdates()
             } else {
-                viewModel.chipSet.stacks.append(ChipStack(value: chipValue, number: chipNumber, currency: viewModel.chipSet.currency, title: nil, color: .random))
+                viewModel.chipSet.stacks.append(ChipStack(value: chipValue, number: chipNumber, currency: viewModel.chipSet.currency, title: nil, color: colorPickerView.color))
                 
                 let indexPath = IndexPath(row: viewModel.chipSet.stacks.count - 1, section: 0)
                 
@@ -66,6 +124,8 @@ class ChipSetDetailVC: UIViewController {
             chipValueTextField.text = nil
             chipNumberTextField.text = nil
         }
+        
+        [pickerBlurView, containerView, colorSelectedButton].forEach { $0.isHidden = true }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -84,6 +144,7 @@ class ChipSetDetailVC: UIViewController {
         
         setupTopElements()
         setupTableView()
+        setupColorPicker()
     }
     
     fileprivate func setupTopElements() {
@@ -115,6 +176,25 @@ class ChipSetDetailVC: UIViewController {
         tableView.tableFooterView = UIView()
         
         view.backgroundColor = Colors.crystalBlue
+    }
+    
+    fileprivate func setupColorPicker() {
+        [pickerBlurView, containerView, colorSelectedButton].forEach { $0.isHidden = true }
+        
+        view.addSubviews(pickerBlurView, containerView, colorSelectedButton)
+        
+        pickerBlurView.fillSuperview()
+        pickerBlurView.alpha = 0.5
+        
+        containerView.centerInSuperview()
+        containerView.constrainWidth(desiredColorSelectedButtonSize.width)
+        containerView.constrainHeight(desiredColorSelectedButtonSize.width)
+        
+        containerView.addSubview(colorPickerView)
+        colorPickerView.fillSuperview()
+        //colorPickerView.color = .random
+        
+        colorSelectedButton.anchor(top: containerView.bottomAnchor, leading: containerView.centerXAnchor, bottom: nil, trailing: nil, padding: .init(top: 16, left: -0.5*desiredColorSelectedButtonSize.width, bottom: 0, right: 0), size: desiredColorSelectedButtonSize)
     }
     
     public func configure(with viewModel: ChipSetDetailViewModel) {

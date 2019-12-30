@@ -1,0 +1,6 @@
+framework module Pods_Poker_Chip_Calculator {
+  umbrella header "Pods-Poker Chip Calculator-umbrella.h"
+
+  export *
+  module * { export * }
+}

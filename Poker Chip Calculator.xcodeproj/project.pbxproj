@@ -23,9 +23,11 @@
 		37B6329623B654A3002863CA /* UIStringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37B6329523B654A3002863CA /* UIStringExtensions.swift */; };
 		37BD82C023B8BF0100D1B45B /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BD82BF23B8BF0100D1B45B /* FormViewController.swift */; };
 		37BD82C223B9043A00D1B45B /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37BD82C123B9043A00D1B45B /* CustomTextField.swift */; };
+		66D4387F964C9567AA986A36 /* Pods_Poker_Chip_Calculator.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64C6A5D52F8370D8B4DE230E /* Pods_Poker_Chip_Calculator.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1AE89255692905E54C29BAF0 /* Pods-Poker Chip Calculator.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poker Chip Calculator.debug.xcconfig"; path = "Target Support Files/Pods-Poker Chip Calculator/Pods-Poker Chip Calculator.debug.xcconfig"; sourceTree = "<group>"; };
 		376A9D4D23B6446A00543FBD /* Poker Chip Calculator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Poker Chip Calculator.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		376A9D5023B6446A00543FBD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		376A9D5723B6446A00543FBD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -44,6 +46,8 @@
 		37B6329523B654A3002863CA /* UIStringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStringExtensions.swift; sourceTree = "<group>"; };
 		37BD82BF23B8BF0100D1B45B /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		37BD82C123B9043A00D1B45B /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
+		64C6A5D52F8370D8B4DE230E /* Pods_Poker_Chip_Calculator.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Poker_Chip_Calculator.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		86F5A11654AEF4151D45766A /* Pods-Poker Chip Calculator.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Poker Chip Calculator.release.xcconfig"; path = "Target Support Files/Pods-Poker Chip Calculator/Pods-Poker Chip Calculator.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				66D4387F964C9567AA986A36 /* Pods_Poker_Chip_Calculator.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -62,6 +67,8 @@
 			children = (
 				376A9D4F23B6446A00543FBD /* Poker Chip Calculator */,
 				376A9D4E23B6446A00543FBD /* Products */,
+				45DD94490F0CC88A0230B4B9 /* Pods */,
+				4A4744876E6BACA8E8ACEF03 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +128,24 @@
 			path = "Extensions+Helpers";
 			sourceTree = "<group>";
 		};
+		45DD94490F0CC88A0230B4B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AE89255692905E54C29BAF0 /* Pods-Poker Chip Calculator.debug.xcconfig */,
+				86F5A11654AEF4151D45766A /* Pods-Poker Chip Calculator.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4A4744876E6BACA8E8ACEF03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				64C6A5D52F8370D8B4DE230E /* Pods_Poker_Chip_Calculator.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -128,9 +153,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 376A9D6123B6446B00543FBD /* Build configuration list for PBXNativeTarget "Poker Chip Calculator" */;
 			buildPhases = (
+				91325369A798FB149158ABBF /* [CP] Check Pods Manifest.lock */,
 				376A9D4923B6446A00543FBD /* Sources */,
 				376A9D4A23B6446A00543FBD /* Frameworks */,
 				376A9D4B23B6446A00543FBD /* Resources */,
+				D776C857149E0890764F1C7B /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -186,6 +213,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		91325369A798FB149158ABBF /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Poker Chip Calculator-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D776C857149E0890764F1C7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poker Chip Calculator/Pods-Poker Chip Calculator-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Poker Chip Calculator/Pods-Poker Chip Calculator-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Poker Chip Calculator/Pods-Poker Chip Calculator-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		376A9D4923B6446A00543FBD /* Sources */ = {
@@ -346,6 +415,7 @@
 		};
 		376A9D6223B6446B00543FBD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AE89255692905E54C29BAF0 /* Pods-Poker Chip Calculator.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -365,6 +435,7 @@
 		};
 		376A9D6323B6446B00543FBD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86F5A11654AEF4151D45766A /* Pods-Poker Chip Calculator.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
