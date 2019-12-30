@@ -84,3 +84,76 @@ class ChipSetDetailCell: UITableViewCell {
         [stackDenominationLabel, colorSwatch, stackCountLabel].forEach { $0.removeFromSuperview() }
     }
 }
+
+
+protocol ChipSetDetailFooterDelegate: class {
+    func calculateByGroupButtonPressed()
+    func calculateByPersonButtonPressed()
+}
+
+class ChipSetDetailFooter: UIView {
+    
+    weak var delegate: ChipSetDetailFooterDelegate?
+    
+    lazy var desiredButtonSize = CGSize(width: bounds.width - 32.0, height: 0.5*bounds.height - 16.0)
+    
+    lazy var calculateByGroupButton: UIButton = {
+        let btn = UIButton(frame: CGRect(origin: .zero, size: desiredButtonSize))
+        btn.backgroundColor = Colors.blueGreen
+        btn.setTitle("Calculate By Group", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 21.0, weight: .bold)
+        btn.titleLabel?.numberOfLines = 1
+        btn.titleLabel?.adjustsFontSizeToFitWidth = true
+        btn.setTitleColor(.white, for: .normal)
+        btn.cornerRadius = desiredButtonSize.height/2.0
+        btn.addTarget(self, action: #selector(calculateByGroupButtonAction), for: .touchUpInside)
+        return btn
+    }()
+    
+    @objc func calculateByGroupButtonAction() {
+        print("DELEGATION - calculateByGroupButton pressed!")
+        delegate?.calculateByGroupButtonPressed()
+    }
+    
+    lazy var calculateByPersonButton: UIButton = {
+        let btn = UIButton(frame: CGRect(origin: .zero, size: desiredButtonSize))
+        btn.backgroundColor = Colors.blueGreen
+        btn.setTitle("Calculate By Person", for: .normal)
+        btn.titleLabel?.font = UIFont.systemFont(ofSize: 21.0, weight: .bold)
+        btn.titleLabel?.numberOfLines = 1
+        btn.titleLabel?.adjustsFontSizeToFitWidth = true
+        btn.setTitleColor(.white, for: .normal)
+        btn.cornerRadius = desiredButtonSize.height/2.0
+        btn.addTarget(self, action: #selector(calculateByPersonButtonAction), for: .touchUpInside)
+        return btn
+    }()
+    
+    @objc func calculateByPersonButtonAction() {
+        print("DELEGATION - calculateByPersonButton pressed!")
+        delegate?.calculateByPersonButtonPressed()
+    }
+    
+    convenience init(footerHeight: CGFloat, delegate: ChipSetDetailFooterDelegate) {
+        self.init()
+        self.desiredButtonSize.height = 0.5*footerHeight - 16.0
+        self.configure(with: delegate)
+    }
+    
+    func configure(with delegate: ChipSetDetailFooterDelegate) {
+        self.delegate = delegate
+        setup()
+    }
+    
+    func setup() {
+        setupButtons()
+    }
+    
+    fileprivate func setupButtons() {
+        addSubviews(calculateByGroupButton, calculateByPersonButton)
+        calculateByGroupButton.anchor(top: topAnchor, leading: leadingAnchor, bottom: centerYAnchor, trailing: trailingAnchor, padding: .init(top: 8, left: 16, bottom: 8, right: 16))
+        calculateByPersonButton.anchor(top: centerYAnchor, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 8, left: 16, bottom: 8, right: 16))
+        
+        calculateByGroupButton.addTarget(self, action: #selector(calculateByGroupButtonAction), for: .touchUpInside)
+        calculateByPersonButton.addTarget(self, action: #selector(calculateByPersonButtonAction), for: .touchUpInside)
+    }
+}

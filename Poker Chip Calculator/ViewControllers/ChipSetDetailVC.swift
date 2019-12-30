@@ -178,7 +178,7 @@ class ChipSetDetailVC: UIViewController {
         tableView.keyboardDismissMode = .interactive
         
         tableView.anchor(top: chipNumberTextField.bottomAnchor, leading: view.safeAreaLayoutGuide.leadingAnchor, bottom: view.safeAreaLayoutGuide.bottomAnchor, trailing: view.safeAreaLayoutGuide.trailingAnchor, padding: .init(top: 8, left: 0, bottom: 0, right: 0))
-        tableView.tableFooterView = UIView()
+//        tableView.tableFooterView = UIView()
         
         view.backgroundColor = Colors.crystalBlue
     }
@@ -250,11 +250,33 @@ extension ChipSetDetailVC: UITableViewDataSource, UITableViewDelegate {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+//        let fv = ChipSetDetailFooter()
+//        fv.configure(with: self)
+//        return fv
+        return ChipSetDetailFooter(footerHeight: 100, delegate: self)
+    }
+    
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 100
+    }
 }
 
 extension ChipSetDetailVC: ChipSetDetailCellDelegate {
     func chipStackCellPressed(chipStack: ChipStack) {
         print("DELEGATION - Chip stack button pressed - \(chipStack.formattedTotalValue)!")
+    }
+}
+
+extension ChipSetDetailVC: ChipSetDetailFooterDelegate {
+    func calculateByGroupButtonPressed() {
+        print("DELEGATION - calculateByGroupButtonPressed in ChipSetDetailVC")
+    }
+    
+    func calculateByPersonButtonPressed() {
+        print("DELEGATION - calculateByPersonButtonPressed in ChipSetDetailVC")
     }
 }
 
