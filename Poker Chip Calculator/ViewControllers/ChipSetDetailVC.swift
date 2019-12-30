@@ -252,15 +252,12 @@ extension ChipSetDetailVC: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        let fv = ChipSetDetailFooter()
-//        fv.configure(with: self)
-//        return fv
-        return ChipSetDetailFooter(footerHeight: 100, delegate: self)
+        return viewModel?.chipSet.stacks.isEmpty ?? true ? UIView() : ChipSetDetailFooter(footerHeight: 120, delegate: self)
     }
     
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 100
+        return viewModel?.chipSet.stacks.isEmpty ?? true ? .leastNormalMagnitude : 120
     }
 }
 

@@ -139,12 +139,8 @@ class ChipSetDetailFooter: UIView {
         self.configure(with: delegate)
     }
     
-    func configure(with delegate: ChipSetDetailFooterDelegate) {
+    private func configure(with delegate: ChipSetDetailFooterDelegate) {
         self.delegate = delegate
-        setup()
-    }
-    
-    func setup() {
         setupButtons()
     }
     
